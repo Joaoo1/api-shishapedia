@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts"
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "test": "jest"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -18,6 +19,7 @@
     "helmet": "^5.0.2"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
@@ -33,8 +35,10 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1",
     "prisma": "^3.10.0",
+    "ts-jest": "^27.1.3",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.5"
   }
