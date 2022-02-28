@@ -16,11 +16,11 @@ module.exports = {
       {
         alias: {
           '@controllers': './src/app/controllers',
-          '@models': './src/app/models',
+          '@repositories': './src/app/repositories',
           '@views': './src/app/views',
           '@middlewares': './src/app/middlewares',
           '@validators': './src/app/validators',
-          '@libs': './src/libs',
+          '@providers': './src/providers',
           '@config': './src/config',
           '@services/*': './src/app/services/*',
         },
