@@ -1,8 +1,9 @@
 import { PrismaClient } from '@prisma/client';
-import prisma from '@providers/database';
 import { container } from 'tsyringe';
-import { UsersRepository } from '../modules/users/repositories/implementations/UsersRepository';
-import { IUsersRepository } from '../modules/users/repositories/IUsersRepository';
+
+import prisma from '@shared/providers/database';
+import { UsersRepository } from '@modules/accounts/repositories/implementations/UsersRepository';
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 
 container.register<PrismaClient>('PrismaClient', {
   useValue: prisma,

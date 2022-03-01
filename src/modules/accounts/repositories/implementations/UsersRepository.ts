@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
-
 import { PrismaClient } from '@prisma/client';
+
 import { CreateUserDao } from '../../dao/CreateUserDao';
 import { User } from '../../entities/User';
 import { IUsersRepository } from '../IUsersRepository';

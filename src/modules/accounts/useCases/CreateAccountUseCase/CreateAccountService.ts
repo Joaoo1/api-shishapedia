@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 import { genSaltSync, hash } from 'bcryptjs';
 
-import { ConflictException } from '@errors/ConflictException';
-import { IUsersRepository } from '../repositories/IUsersRepository';
+import { ConflictException } from '@shared/errors/ConflictException';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 interface IRequest {
   name: string;
@@ -13,7 +13,7 @@ interface IRequest {
 }
 
 @injectable()
-export class CreateUserService {
+export class CreateAccountService {
   constructor(
     @inject('UsersRepository')
     private readonly usersRepository: IUsersRepository

@@ -1,4 +1,4 @@
-import { TooManyRequestsException } from '@errors/TooManyRequestsException';
+import { TooManyRequestsException } from '@shared/errors/TooManyRequestsException';
 
 export default {
   windowMs: 10 * 60 * 1000, // 10 minutes

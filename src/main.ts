@@ -7,12 +7,12 @@ import path from 'path';
 
 import 'express-async-errors';
 
-import './app/container';
-import './providers/firebase';
-import { AppRateLimit } from '@middlewares/AppRateLimit';
-import { NotFoundHandler } from '@middlewares/NotFoundHandler';
-import { ExceptionHandler } from '@middlewares/ExpectionHandler';
-import { router } from './app/routes';
+import '@shared/container';
+import '@shared/providers/firebase';
+import { AppRateLimit } from '@shared/infra/http/middlewares/AppRateLimit';
+import { NotFoundHandler } from '@shared/infra/http/middlewares/NotFoundHandler';
+import { ExceptionHandler } from '@shared/infra/http/middlewares/ExpectionHandler';
+import { router } from '@shared/infra/http/routes';
 
 const app = express();
 
@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 // Serve the pictures
 app.use(
   '/images',
-  express.static(path.resolve(__dirname, 'uploads', 'images'))
+  express.static(path.resolve(__dirname, '..', 'uploads', 'images'))
 );
 
 // Routes

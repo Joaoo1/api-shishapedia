@@ -23,11 +23,9 @@
     "sourceMap": true,
     "baseUrl": "./src",
     "paths": {
-      "@views/*": ["./app/views/*"],
-      "@middlewares/*": ["./app/middlewares/*"],
-      "@errors/*": ["./app/errors/*"],
-      "@providers/*": ["./providers/*"],
-      "@config/*": ["./config/*"]
+      "@modules/*": ["./modules/*"],
+      "@config/*": ["./config/*"],
+      "@shared/*": ["./shared/*"]
     }
   },
   "include": [

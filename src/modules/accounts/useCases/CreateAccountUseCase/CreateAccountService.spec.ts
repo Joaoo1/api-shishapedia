@@ -5,17 +5,17 @@ import {
   generateFakeEmail,
   generateFakeName,
   generateFakeValidPassword,
-} from '../../common/tests/fakeData';
-import { UsersRepositoryInMemory } from '../repositories/implementations/UsersRepositoryInMemory';
-import { CreateUserService } from './CreateUserService';
+} from '../../../common/tests/fakeData';
+import { UsersRepositoryInMemory } from '../../repositories/implementations/UsersRepositoryInMemory';
+import { CreateAccountService } from './CreateAccountService';
 
-let createUserService: CreateUserService;
+let createAccountService: CreateAccountService;
 let userRepositoryInMemory: UsersRepositoryInMemory;
 
-describe('CreateUserService', () => {
+describe('CreateAccountService', () => {
   beforeEach(() => {
     userRepositoryInMemory = new UsersRepositoryInMemory();
-    createUserService = new CreateUserService(userRepositoryInMemory);
+    createAccountService = new CreateAccountService(userRepositoryInMemory);
   });
 
   it('should be to create an account', async () => {
@@ -25,7 +25,7 @@ describe('CreateUserService', () => {
       password: generateFakeValidPassword(),
     };
 
-    const createdUser = await createUserService.execute(data);
+    const createdUser = await createAccountService.execute(data);
 
     const found = await userRepositoryInMemory.findById(createdUser.id);
 
