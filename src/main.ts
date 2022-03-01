@@ -1,19 +1,20 @@
+import 'dotenv/config';
+import 'reflect-metadata';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import path from 'path';
-import firebase from 'firebase-admin';
 
+import 'express-async-errors';
+
+import './app/container';
+import './providers/firebase';
 import { AppRateLimit } from '@middlewares/AppRateLimit';
 import { NotFoundHandler } from '@middlewares/NotFoundHandler';
 import { ExceptionHandler } from '@middlewares/ExpectionHandler';
-import firebaseServiceAccount from '@config/serviceAccountKey.json';
+import { router } from './app/routes';
 
 const app = express();
-
-firebase.initializeApp({
-  credential: firebase.credential.cert(firebaseServiceAccount as any),
-});
 
 app.use(cors({ maxAge: 86400 }));
 
@@ -33,6 +34,9 @@ app.use(
   '/images',
   express.static(path.resolve(__dirname, 'uploads', 'images'))
 );
+
+// Routes
+app.use(router);
 
 // 404 handler
 app.use(NotFoundHandler);

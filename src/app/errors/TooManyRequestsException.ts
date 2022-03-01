@@ -1,6 +1,6 @@
-import { BaseError } from './BaseError';
+import { BaseException } from './BaseException';
 
-class TooManyRequestsError extends BaseError {
+class TooManyRequestsException extends BaseException {
   constructor(
     message = 'Muitas requisições foram feitas do seu IP. Tente novamente em alguns minutos'
   ) {
@@ -8,4 +8,4 @@ class TooManyRequestsError extends BaseError {
   }
 }
 
-export { TooManyRequestsError };
+export { TooManyRequestsException };

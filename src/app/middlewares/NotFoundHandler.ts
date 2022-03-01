@@ -1,9 +1,9 @@
 import { RequestHandler } from 'express';
 
-import { NotFoundError } from '../errors/NotFoundError';
+import { NotFoundException } from '../errors/NotFoundException';
 
 const NotFoundHandler: RequestHandler = (req, res, next) => {
-  next(new NotFoundError('Rota não encontrada'));
+  next(new NotFoundException('Rota não encontrada'));
 };
 
 export { NotFoundHandler };

@@ -11,18 +11,16 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [
+    'babel-plugin-transform-typescript-metadata',
     [
       'module-resolver',
       {
         alias: {
-          '@controllers': './src/app/controllers',
-          '@repositories': './src/app/repositories',
           '@views': './src/app/views',
           '@middlewares': './src/app/middlewares',
-          '@validators': './src/app/validators',
+          '@errors': './src/app/errors',
           '@providers': './src/providers',
           '@config': './src/config',
-          '@services/*': './src/app/services/*',
         },
       },
     ],

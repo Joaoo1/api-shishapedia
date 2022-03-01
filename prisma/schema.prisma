@@ -9,3 +9,37 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model UserImage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  path      String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  iconUsers  User[] @relation("icon")
+  imageUsers User[]
+
+  @@map("user_images")
+}
+
+model User {
+  id                   Int        @id @default(autoincrement())
+  name                 String
+  email                String     @unique
+  password             String
+  googleId             String?    @unique @map("google_id")
+  facebookId           String?    @unique @map("facebook_id")
+  fcmTokens            String[]   @map("fcm_tokens")
+  moderator            Boolean    @default(false)
+  resetPasswordToken   String?    @map("reset_password_token")
+  resetPasswordExpires DateTime?  @map("reset_password_expires")
+  image                UserImage? @relation(fields: [imageId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  imageId              Int?       @unique @map("image_id")
+  icon                 UserImage? @relation("icon", fields: [iconId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  iconId               Int?       @unique @map("icon_id")
+  createdAt            DateTime   @default(now()) @map("created_at")
+  updatedAt            DateTime   @default(now()) @map("updated_at")
+
+  @@map("users")
+}
