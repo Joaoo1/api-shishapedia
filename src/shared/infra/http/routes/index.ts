@@ -1,9 +1,11 @@
 import { Router } from 'express';
 
-import { accountsRoutes } from './accounts.routes';
+import { usersRoutes } from './users.routes';
+import { authRoutes } from './auth.routes';
 
 const router = Router();
 
-router.use('/accounts', accountsRoutes);
+router.use('/users', usersRoutes);
+router.use('/auth', authRoutes);
 
 export { router };

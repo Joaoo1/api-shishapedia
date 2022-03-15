@@ -2,7 +2,7 @@ import { emailRegex } from '../../common/validation/emailRegex';
 import { yupOptions } from '../../common/validation/yupOptions';
 import yup from '../../common/validation/yup';
 
-const createAccountSchema = yup.object().shape({
+const createUserSchema = yup.object().shape({
   name: yup.string().required(),
   email: yup.string().matches(emailRegex, 'Email inválido').required(),
   password: yup.string().required(),
@@ -12,7 +12,7 @@ const createAccountSchema = yup.object().shape({
     .oneOf([yup.ref('password')], 'As senhas não conferem'),
 });
 
-const createAccountValidator = (data: object) =>
-  createAccountSchema.validate(data, yupOptions);
+const createUserValidator = (data: object) =>
+  createUserSchema.validate(data, yupOptions);
 
-export { createAccountValidator };
+export { createUserValidator };

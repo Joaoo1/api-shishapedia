@@ -9,4 +9,11 @@ const generateFakeEmail = () => faker.internet.email();
 const generateFakeValidPassword = () =>
   faker.internet.password(24, true, passwordRegex);
 
-export { generateFakeEmail, generateFakeName, generateFakeValidPassword };
+const generateRandomAplhanumeric = () => faker.random.alphaNumeric(24);
+
+export {
+  generateFakeEmail,
+  generateFakeName,
+  generateFakeValidPassword,
+  generateRandomAplhanumeric,
+};

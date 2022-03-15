@@ -13,7 +13,7 @@ interface IRequest {
 }
 
 @injectable()
-export class CreateAccountService {
+export class CreateUserUseCase {
   constructor(
     @inject('UsersRepository')
     private readonly usersRepository: IUsersRepository
@@ -56,6 +56,8 @@ export class CreateAccountService {
       name,
       email,
       password: passwordHash,
+      googleId,
+      facebookId,
     });
 
     // TODO: Send welcome notification

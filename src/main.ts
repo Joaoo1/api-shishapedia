@@ -9,6 +9,7 @@ import 'express-async-errors';
 
 import '@shared/container';
 import '@shared/providers/firebase';
+import '@shared/infra/http/passport';
 import { AppRateLimit } from '@shared/infra/http/middlewares/AppRateLimit';
 import { NotFoundHandler } from '@shared/infra/http/middlewares/NotFoundHandler';
 import { ExceptionHandler } from '@shared/infra/http/middlewares/ExpectionHandler';
