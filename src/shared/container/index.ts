@@ -4,6 +4,8 @@ import { container } from 'tsyringe';
 import prisma from '@shared/providers/database';
 import { UsersRepository } from '@modules/users/repositories/implementations/UsersRepository';
 import { IUsersRepository } from '@modules/users/repositories/IUsersRepository';
+import { UserImagesRepository } from '@modules/users/repositories/implementations/UserImagesRepository';
+import { IUserImagesRepository } from '@modules/users/repositories/IUserImagesRepository';
 
 container.register<PrismaClient>('PrismaClient', {
   useValue: prisma,
@@ -12,4 +14,9 @@ container.register<PrismaClient>('PrismaClient', {
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository
+);
+
+container.registerSingleton<IUserImagesRepository>(
+  'UsersImagesRepository',
+  UserImagesRepository
 );

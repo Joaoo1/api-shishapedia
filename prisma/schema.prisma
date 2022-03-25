@@ -17,9 +17,8 @@ model UserImage {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @map("updated_at")
 
-  iconUsers  User[] @relation("icon")
-  imageUsers User[]
-
+  users      User[]
+  usersThumb User[] @relation("thumb")
   @@map("user_images")
 }
 
@@ -36,8 +35,8 @@ model User {
   resetPasswordExpires DateTime?  @map("reset_password_expires")
   image                UserImage? @relation(fields: [imageId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   imageId              Int?       @unique @map("image_id")
-  icon                 UserImage? @relation("icon", fields: [iconId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  iconId               Int?       @unique @map("icon_id")
+  thumb                UserImage? @relation("thumb", fields: [thumbId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  thumbId              Int?       @unique @map("thumb_id")
   createdAt            DateTime   @default(now()) @map("created_at")
   updatedAt            DateTime   @default(now()) @map("updated_at")
 

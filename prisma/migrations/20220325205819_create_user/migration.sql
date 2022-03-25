@@ -22,7 +22,7 @@ CREATE TABLE "users" (
     "reset_password_token" TEXT,
     "reset_password_expires" TIMESTAMP(3),
     "image_id" INTEGER,
-    "icon_id" INTEGER,
+    "thumb_id" INTEGER,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -45,10 +45,10 @@ CREATE UNIQUE INDEX "users_facebook_id_key" ON "users"("facebook_id");
 CREATE UNIQUE INDEX "users_image_id_key" ON "users"("image_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "users_icon_id_key" ON "users"("icon_id");
+CREATE UNIQUE INDEX "users_thumb_id_key" ON "users"("thumb_id");
 
 -- AddForeignKey
 ALTER TABLE "users" ADD CONSTRAINT "users_image_id_fkey" FOREIGN KEY ("image_id") REFERENCES "user_images"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "users" ADD CONSTRAINT "users_icon_id_fkey" FOREIGN KEY ("icon_id") REFERENCES "user_images"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "users" ADD CONSTRAINT "users_thumb_id_fkey" FOREIGN KEY ("thumb_id") REFERENCES "user_images"("id") ON DELETE CASCADE ON UPDATE CASCADE;

@@ -25,25 +25,12 @@
         "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
         "@typescript-eslint/no-throw-literal": "off",
         "class-methods-use-this": "off",
-        "@typescript-eslint/naming-convention": [
-            "error",
-            {
-                "selector": "interface",
-                "format": [
-                    "PascalCase"
-                ],
-                "custom": {
-                    "regex": "^I[A-Z]",
-                    "match": true
-                }
-            }
-        ],
         "import-helpers/order-imports": [
             "warn",
             {
                 "newlinesBetween": "always",
                 "groups": [
-                    ["module", "/@prisma/"], 
+                    ["module", "/@prisma/", "/@faker/"], 
                     [
                         "/^@/",
                         "parent",

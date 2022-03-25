@@ -1,4 +1,4 @@
-import { Expose, Type } from 'class-transformer';
+import { Exclude, Expose, Type } from 'class-transformer';
 
 import { BaseEntity } from '../../common/entities/BaseEntity';
 import { UserImage } from './UserImage';
@@ -13,13 +13,19 @@ export class User extends BaseEntity {
   @Expose()
   moderator: boolean;
 
-  @Expose()
-  @Type(() => UserImage)
-  image?: UserImage;
+  @Exclude()
+  imageId: number;
 
   @Expose()
   @Type(() => UserImage)
-  icon?: UserImage;
+  image?: UserImage | null;
+
+  @Exclude()
+  thumbId: number;
+
+  @Expose()
+  @Type(() => UserImage)
+  thumb?: UserImage | null;
 
   password: string;
 

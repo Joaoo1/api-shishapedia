@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import { PrismaClient } from '@prisma/client';
 
+import { UpdateUserDao } from '@modules/users/dao/UpdateUserDao';
 import { CreateUserDao } from '../../dao/CreateUserDao';
 import { User } from '../../entities/User';
 import { IUsersRepository } from '../IUsersRepository';
@@ -27,5 +28,13 @@ export class UsersRepository implements IUsersRepository {
 
   async create(data: CreateUserDao): Promise<User> {
     return this.database.user.create({ data });
+  }
+
+  update(userId: number, data: UpdateUserDao): Promise<User> {
+    return this.database.user.update({
+      where: { id: userId },
+      data,
+      include: { image: true, thumb: true },
+    });
   }
 }

@@ -2,15 +2,8 @@ import { inject, injectable } from 'tsyringe';
 import { genSaltSync, hash } from 'bcryptjs';
 
 import { ConflictException } from '@shared/errors/ConflictException';
+import { CreateUserBO } from '@modules/users/bo/CreateUserBO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
-
-interface IRequest {
-  name: string;
-  email: string;
-  password: string;
-  googleId?: string;
-  facebookId?: string;
-}
 
 @injectable()
 export class CreateUserUseCase {
@@ -19,7 +12,7 @@ export class CreateUserUseCase {
     private readonly usersRepository: IUsersRepository
   ) {}
 
-  async execute({ name, email, password, googleId, facebookId }: IRequest) {
+  async execute({ name, email, password, googleId, facebookId }: CreateUserBO) {
     const alreadyExists = await this.usersRepository.findByEmail(email);
 
     if (alreadyExists) {

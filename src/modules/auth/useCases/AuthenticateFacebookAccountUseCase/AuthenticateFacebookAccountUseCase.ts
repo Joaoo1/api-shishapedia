@@ -23,15 +23,25 @@ class AuthenticateFacebookAccountUseCase {
     let user = await this.usersRepository.findByFacebookId(facebookId);
 
     if (!user) {
-      const createUserUseCase = new CreateUserUseCase(this.usersRepository);
-      const randomPassword = randomBytes(16).toString('hex');
-      const createdUser = await createUserUseCase.execute({
-        name,
-        email,
-        facebookId,
-        password: randomPassword,
-      });
-      user = createdUser;
+      const userWithEmail = await this.usersRepository.findByEmail(email);
+
+      if (userWithEmail) {
+        const updatedUser = await this.usersRepository.update(
+          userWithEmail.id,
+          { facebookId }
+        );
+        user = updatedUser;
+      } else {
+        const createUserUseCase = new CreateUserUseCase(this.usersRepository);
+        const randomPassword = randomBytes(16).toString('hex');
+        const createdUser = await createUserUseCase.execute({
+          name,
+          email,
+          facebookId,
+          password: randomPassword,
+        });
+        user = createdUser;
+      }
     }
 
     const token = jwt.sign({ id: user.id }, authConfig.jwtSecret);

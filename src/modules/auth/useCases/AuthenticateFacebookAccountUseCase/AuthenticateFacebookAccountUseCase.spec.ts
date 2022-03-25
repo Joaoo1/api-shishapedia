@@ -57,4 +57,26 @@ describe('AuthenticateFacebookUseCase', () => {
 
     expect(user).not.toBeNull();
   });
+
+  it('should vinculated facebook account if account already exists', async () => {
+    const userEmail = generateFakeEmail();
+    const userWithEmail = await usersRepositoryInMemory.create({
+      name: generateFakeName(),
+      email: userEmail,
+      password: generateRandomAplhanumeric(),
+    });
+
+    const facebookId = generateRandomAplhanumeric();
+
+    await authenticateFacebookAccountUseCase.execute({
+      email: userEmail,
+      facebookId,
+      name: userWithEmail.name,
+    });
+
+    const user = await usersRepositoryInMemory.findByFacebookId(facebookId);
+
+    expect(user).not.toBeNull();
+    expect(user!.email).toBe(userEmail);
+  });
 });

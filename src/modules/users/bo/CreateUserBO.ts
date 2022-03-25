@@ -1,4 +1,4 @@
-export interface CreateUserDao {
+export interface CreateUserBO {
   name: string;
   email: string;
   password: string;

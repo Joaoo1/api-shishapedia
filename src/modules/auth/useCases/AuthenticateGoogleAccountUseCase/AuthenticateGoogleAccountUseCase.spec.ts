@@ -57,4 +57,26 @@ describe('AuthenticateGoogleAccountUseCase', () => {
 
     expect(user).not.toBeNull();
   });
+
+  it('should vinculated google account if account already exists', async () => {
+    const userEmail = generateFakeEmail();
+    const userWithEmail = await usersRepositoryInMemory.create({
+      name: generateFakeName(),
+      email: userEmail,
+      password: generateRandomAplhanumeric(),
+    });
+
+    const googleId = generateRandomAplhanumeric();
+
+    await authenticateGoogleAccountUseCase.execute({
+      email: userEmail,
+      googleId,
+      name: userWithEmail.name,
+    });
+
+    const user = await usersRepositoryInMemory.findByGoogleId(googleId);
+
+    expect(user).not.toBeNull();
+    expect(user!.email).toBe(userEmail);
+  });
 });

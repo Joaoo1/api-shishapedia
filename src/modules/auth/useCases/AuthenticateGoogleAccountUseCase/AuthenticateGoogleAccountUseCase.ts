@@ -23,15 +23,25 @@ class AuthenticateGoogleAccountUseCase {
     let user = await this.usersRepository.findByGoogleId(googleId);
 
     if (!user) {
-      const createUserUseCase = new CreateUserUseCase(this.usersRepository);
-      const randomPassword = randomBytes(16).toString('hex');
-      const createdUser = await createUserUseCase.execute({
-        name,
-        email,
-        googleId,
-        password: randomPassword,
-      });
-      user = createdUser;
+      const userWithEmail = await this.usersRepository.findByEmail(email);
+
+      if (userWithEmail) {
+        const updatedUser = await this.usersRepository.update(
+          userWithEmail.id,
+          { googleId }
+        );
+        user = updatedUser;
+      } else {
+        const createUserUseCase = new CreateUserUseCase(this.usersRepository);
+        const randomPassword = randomBytes(16).toString('hex');
+        const createdUser = await createUserUseCase.execute({
+          name,
+          email,
+          googleId,
+          password: randomPassword,
+        });
+        user = createdUser;
+      }
     }
 
     const token = jwt.sign({ id: user.id }, authConfig.jwtSecret);
