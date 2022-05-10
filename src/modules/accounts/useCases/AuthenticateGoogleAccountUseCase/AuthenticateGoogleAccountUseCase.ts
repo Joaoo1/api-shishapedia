@@ -2,8 +2,8 @@ import { inject, injectable } from 'tsyringe';
 import { randomBytes } from 'crypto';
 import jwt from 'jsonwebtoken';
 
-import { IUsersRepository } from '@modules/users/repositories/IUsersRepository';
-import { CreateUserUseCase } from '@modules/users/useCases/CreateUserUseCase/CreateUserUseCase';
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
+import { CreateUserUseCase } from '@modules/accounts/useCases/CreateUserUseCase/CreateUserUseCase';
 import authConfig from '@config/auth';
 
 interface IRequest {

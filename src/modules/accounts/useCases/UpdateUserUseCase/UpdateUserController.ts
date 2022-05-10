@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { updateUserValidator } from '@modules/users/validators/UpdateUserValidator';
+import { updateUserValidator } from '@modules/accounts/validators/UpdateUserValidator';
 import { UpdateUserUseCase } from './UpdateUserUseCase';
 
 class UpdateUserController {

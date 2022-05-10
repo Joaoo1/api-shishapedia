@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import { CreateUserController } from '@modules/users/useCases/CreateUserUseCase/CreateUserController';
-import { UpdateUserController } from '@modules/users/useCases/UpdateUserUseCase/UpdateUserController';
-import { UpdateUserImageController } from '@modules/users/useCases/UpdateUserImageUseCase/UpdateUserImageController';
+import { CreateUserController } from '@modules/accounts/useCases/CreateUserUseCase/CreateUserController';
+import { UpdateUserController } from '@modules/accounts/useCases/UpdateUserUseCase/UpdateUserController';
+import { UpdateUserImageController } from '@modules/accounts/useCases/UpdateUserImageUseCase/UpdateUserImageController';
 import { CreateUserRateLimit } from '../middlewares/CreateUserRateLimit';
 import { EnsureAuthenticatedMiddleware } from '../middlewares/EnsureAuthenticated';
 import UploadImage from '../middlewares/UploadImage';

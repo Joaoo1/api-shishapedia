@@ -14,14 +14,14 @@ export class User extends BaseEntity {
   moderator: boolean;
 
   @Exclude()
-  imageId: number;
+  imageId?: number | null;
 
   @Expose()
   @Type(() => UserImage)
   image?: UserImage | null;
 
   @Exclude()
-  thumbId: number;
+  thumbId?: number | null;
 
   @Expose()
   @Type(() => UserImage)

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { classTransformer } from '@modules/common/utils/classTransformer';
-import { User } from '@modules/users/entities/User';
+import { User } from '@modules/accounts/entities/User';
 import { UpdateUserImageUseCase } from './UpdateUserImageUseCase';
 
 class UpdateUserImageController {

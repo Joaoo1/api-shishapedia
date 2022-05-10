@@ -1,5 +1,5 @@
-import { CreateUserImageDao } from '@modules/users/dao/CreateUserImageDao';
-import { UserImage } from '@modules/users/entities/UserImage';
+import { CreateUserImageDao } from '@modules/accounts/dao/CreateUserImageDao';
+import { UserImage } from '@modules/accounts/entities/UserImage';
 import { IUserImagesRepository } from '../IUserImagesRepository';
 
 export class UserImagesRepositoryInMemory implements IUserImagesRepository {

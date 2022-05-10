@@ -1,4 +1,4 @@
-import { UpdateUserDao } from '@modules/users/dao/UpdateUserDao';
+import { UpdateUserDao } from '@modules/accounts/dao/UpdateUserDao';
 import { CreateUserDao } from '../../dao/CreateUserDao';
 import { User } from '../../entities/User';
 import { IUsersRepository } from '../IUsersRepository';

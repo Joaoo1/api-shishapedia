@@ -1,12 +1,12 @@
 import { inject, injectable } from 'tsyringe';
 import { compare, genSaltSync, hashSync } from 'bcryptjs';
 
-import { UpdateUserBO } from '@modules/users/bo/UpdateUserBO';
-import { IUsersRepository } from '@modules/users/repositories/IUsersRepository';
+import { UpdateUserBO } from '@modules/accounts/bo/UpdateUserBO';
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { NotFoundException } from '@shared/errors/NotFoundException';
 import { BadRequestException } from '@shared/errors/BadRequestException';
 import { UnauthorizedException } from '@shared/errors/UnauthorizedException';
-import { User } from '@modules/users/entities/User';
+import { User } from '@modules/accounts/entities/User';
 import { ConflictException } from '@shared/errors/ConflictException';
 
 @injectable()

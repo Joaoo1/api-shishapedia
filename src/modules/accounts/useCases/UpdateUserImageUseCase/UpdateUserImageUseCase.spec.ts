@@ -5,9 +5,9 @@ import {
   generateFakeName,
   generateRandomAplhanumeric,
 } from '@modules/common/tests/fakeData';
-import { UsersRepositoryInMemory } from '@modules/users/repositories/implementations/UsersRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/UsersRepositoryInMemory';
 import { NotFoundException } from '@shared/errors/NotFoundException';
-import { UserImagesRepositoryInMemory } from '@modules/users/repositories/implementations/UserImagesRepositoryInMemory';
+import { UserImagesRepositoryInMemory } from '@modules/accounts/repositories/implementations/UserImagesRepositoryInMemory';
 import { UpdateUserImageUseCase } from './UpdateUserImageUseCase';
 
 let updateUserImageUseCase: UpdateUserImageUseCase;

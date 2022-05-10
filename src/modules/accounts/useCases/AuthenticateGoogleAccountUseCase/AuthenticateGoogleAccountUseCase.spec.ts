@@ -7,7 +7,7 @@ import {
   generateFakeName,
   generateRandomAplhanumeric,
 } from '@modules/common/tests/fakeData';
-import { UsersRepositoryInMemory } from '@modules/users/repositories/implementations/UsersRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/UsersRepositoryInMemory';
 import { AuthenticateGoogleAccountUseCase } from './AuthenticateGoogleAccountUseCase';
 
 let authenticateGoogleAccountUseCase: AuthenticateGoogleAccountUseCase;

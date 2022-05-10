@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import passport from 'passport';
 
-import { AuthenticateEmailAccountController } from '@modules/auth/useCases/AuthenticateEmailAccountUseCase/AuthenticateEmailAccountController';
-import { AuthenticateGoogleAccountController } from '@modules/auth/useCases/AuthenticateGoogleAccountUseCase/AuthenticateGoogleAccountController';
-import { AuthenticateFacebookAccountController } from '@modules/auth/useCases/AuthenticateFacebookAccountUseCase/AuthenticateFacebookAccountController';
+import { AuthenticateEmailAccountController } from '@modules/accounts/useCases/AuthenticateEmailAccountUseCase/AuthenticateEmailAccountController';
+import { AuthenticateGoogleAccountController } from '@modules/accounts/useCases/AuthenticateGoogleAccountUseCase/AuthenticateGoogleAccountController';
+import { AuthenticateFacebookAccountController } from '@modules/accounts/useCases/AuthenticateFacebookAccountUseCase/AuthenticateFacebookAccountController';
 
 const authRoutes = Router();
 

@@ -2,11 +2,11 @@ import { inject, injectable } from 'tsyringe';
 import { join } from 'path';
 import { unlink } from 'fs/promises';
 
-import { UpdateUserImageBO } from '@modules/users/bo/UpdateUserImageBO';
-import { User } from '@modules/users/entities/User';
-import { IUsersRepository } from '@modules/users/repositories/IUsersRepository';
+import { UpdateUserImageBO } from '@modules/accounts/bo/UpdateUserImageBO';
+import { User } from '@modules/accounts/entities/User';
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { NotFoundException } from '@shared/errors/NotFoundException';
-import { IUserImagesRepository } from '@modules/users/repositories/IUserImagesRepository';
+import { IUserImagesRepository } from '@modules/accounts/repositories/IUserImagesRepository';
 import { imagesUploadFolder } from '@config/multer';
 
 @injectable()

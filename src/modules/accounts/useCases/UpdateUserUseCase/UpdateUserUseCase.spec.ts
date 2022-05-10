@@ -6,7 +6,7 @@ import {
   generateFakeName,
   generateRandomAplhanumeric,
 } from '@modules/common/tests/fakeData';
-import { UsersRepositoryInMemory } from '@modules/users/repositories/implementations/UsersRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/UsersRepositoryInMemory';
 import { UnauthorizedException } from '@shared/errors/UnauthorizedException';
 import { ConflictException } from '@shared/errors/ConflictException';
 import { NotFoundException } from '@shared/errors/NotFoundException';

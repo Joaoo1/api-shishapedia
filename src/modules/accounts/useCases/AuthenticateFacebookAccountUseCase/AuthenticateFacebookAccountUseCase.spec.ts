@@ -6,7 +6,7 @@ import {
   generateFakeName,
   generateRandomAplhanumeric,
 } from '@modules/common/tests/fakeData';
-import { UsersRepositoryInMemory } from '@modules/users/repositories/implementations/UsersRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/UsersRepositoryInMemory';
 import authConfig from '@config/auth';
 import { AuthenticateFacebookAccountUseCase } from './AuthenticateFacebookAccountUseCase';
 

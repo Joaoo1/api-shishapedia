@@ -3,7 +3,7 @@ import { verify, JsonWebTokenError } from 'jsonwebtoken';
 import { hashSync } from 'bcryptjs';
 
 import authConfig from '@config/auth';
-import { UsersRepositoryInMemory } from '@modules/users/repositories/implementations/UsersRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/UsersRepositoryInMemory';
 import {
   generateFakeEmail,
   generateFakeName,

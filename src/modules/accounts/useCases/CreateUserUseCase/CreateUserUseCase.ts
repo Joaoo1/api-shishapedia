@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 import { genSaltSync, hash } from 'bcryptjs';
 
 import { ConflictException } from '@shared/errors/ConflictException';
-import { CreateUserBO } from '@modules/users/bo/CreateUserBO';
+import { CreateUserBO } from '@modules/accounts/bo/CreateUserBO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 @injectable()

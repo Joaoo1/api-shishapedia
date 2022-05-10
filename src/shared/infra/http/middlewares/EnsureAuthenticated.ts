@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 
 import { UnauthorizedException } from '@shared/errors/UnauthorizedException';
 import { NotFoundException } from '@shared/errors/NotFoundException';
-import { UsersRepository } from '@modules/users/repositories/implementations/UsersRepository';
+import { UsersRepository } from '@modules/accounts/repositories/implementations/UsersRepository';
 import authConfig from '@config/auth';
 
 interface IPayload {
