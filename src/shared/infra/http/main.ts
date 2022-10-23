@@ -4,6 +4,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import 'express-async-errors';
 
+import '@shared/container';
+
 import { NotFoundHandler } from '@shared/infra/http/middlewares/NotFoundHandler';
 import { ExceptionHandler } from '@shared/infra/http/middlewares/ExceptionHandler';
 import { router } from './routes';
