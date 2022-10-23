@@ -1,9 +1,9 @@
 import { RequestHandler } from 'express';
 
-import { NotFoundException } from '@shared/errors/NotFoundException';
+import { NotFoundError } from '@shared/infra/http/errors/NotFoundError';
 
 const NotFoundHandler: RequestHandler = (_req, _res, next) => {
-  next(new NotFoundException('Rota não encontrada'));
+  next(new NotFoundError('Rota não encontrada'));
 };
 
 export { NotFoundHandler };
